@@ -29,10 +29,13 @@ namespace Week8ProjectDay
 
             writer.WriteLine("\t\t~~~~~~~~Account Summary~~~~~~~~");
             writer.WriteLine("Account Holder: " + client.Name);
-            writer.WriteLine("Account Number: " + account.Account);
+            writer.WriteLine("Account Number: " + account.Id);
             writer.WriteLine();
-            writer.WriteLine("Transactions:");
+            writer.WriteLine("Transaction Details:");
+            writer.WriteLine();
+            writer.WriteLine(String.Format("{0,20}{1,15}{2,15}", "|Time Transaction Took Place|", "|Transaction Amount|", "|Balance|"));
             writer.WriteLine(DateTime.Now);
+            writer.WriteLine();
             writer.WriteLine("");
             writer.Close();
         }
@@ -41,13 +44,14 @@ namespace Week8ProjectDay
         {
             //streamread from .txt file
             Console.WriteLine("\t\tAccount Holder: " + client.Name);
-            Console.WriteLine("\t\tAccount Number: " + account.Account);
+            Console.WriteLine("\t\tAccount Number: " + account.Id);
 
         }
 
         public void ViewAccountBalance()
         {
-
+            Console.WriteLine("\tYour account balance is : $" + this.account.Total);
+            
         }
 
         public void DepositFunds()
@@ -58,6 +62,8 @@ namespace Week8ProjectDay
             {
                 if (Regex.IsMatch(deposit, @"^\d+.?\d+$"))
                 {
+                    float depositAmount = float.Parse(deposit);
+                    this.account.Deposit(depositAmount);
                     Console.WriteLine("\n\tThank you for your deposit of $" + deposit + "!");
                     break;
                 }
@@ -68,13 +74,31 @@ namespace Week8ProjectDay
                 }
             }
 
+
+
         }
 
         public void WithdrawFunds()
         {
-            Console.Write("Please enter the amount you wish to withdraw: ");
-            int withdrawal = int.Parse(Console.ReadLine());
-            Console.WriteLine("Your withdrawal of " + withdrawal + "!");
+            Console.Write("\tPlease enter the amount you wish to withdraw: $");
+            string withdrawal = Console.ReadLine();
+            while (true)
+            {
+                if (Regex.IsMatch(withdrawal, @"^\d+.?\d+$"))
+                {
+                    float withdrawalAmount = float.Parse(withdrawal);
+                    this.account.Withdraw(withdrawalAmount);
+                    Console.WriteLine("\n\tYour withdrawal of " + withdrawal + " is complete!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\tOops! Please enter a valid integer only (can include a \".\" for cents).");
+                    withdrawal = Console.ReadLine();
+                }
+            }
+
+            
         }
 
         public static void Exit()

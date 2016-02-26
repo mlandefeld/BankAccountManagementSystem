@@ -9,21 +9,41 @@ namespace Week8ProjectDay
     class Accounts
     {
         //public string sdflkjsd = "";
-        public int account;
-        //public static Random randNum = new Random();
+        public int id;
+        public float total;
 
-        public int NewAcct()
+        public Accounts()
         {
-            Random randNum = new Random();
-            account = randNum.Next(10000000, 100000000);
-            return account;
-           
+            this.id = MakeNewAccountNumber();
+            this.total = 0;
         }
 
-        public int Account
+        public int Id
         {
-            get { return this.account; }
-            set { this.account = NewAcct(); }
+            get { return this.id; }
+        }
+
+        public float Total
+        {
+            get { return this.total; }
+            set { this.total = value; }
+        }
+        public float Deposit(float deposit)
+        {
+            this.total = this.total + deposit;
+            return this.total;
+        }
+
+        public float Withdraw(float withdraw)
+        {
+            this.total = this.total - withdraw;
+            return this.total;
+        }
+
+        public static int MakeNewAccountNumber()
+        {
+            Random randNum = new Random();
+            return randNum.Next(10000000, 100000000);
         }
         
     }

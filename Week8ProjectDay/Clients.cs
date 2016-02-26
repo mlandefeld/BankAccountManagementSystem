@@ -8,11 +8,16 @@ namespace Week8ProjectDay
 {
     class Clients
     {
-        public string client = "Margaret Landefeld";
+        public string name;
+
+        public Clients()
+        {
+            this.name = "Margaret Landefeld";
+        }
 
         public string Name
         {
-            get { return this.client; }
+            get { return this.name; }
             //set { this.client = value; }
         }
 

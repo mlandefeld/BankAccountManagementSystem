@@ -36,14 +36,10 @@ namespace Week8ProjectDay
             string input = Console.ReadLine();
             while (true)
             {
-                if (input.Equals("exit", StringComparison.CurrentCultureIgnoreCase))
-                {
-                    Commands.Exit();
-                }
-                else if (input == "1")
+                if (input == "1")
                 {
                     Console.Clear();
-                    string one = "Bank Account Management System \n\n\t\t\t     View Client Information:\n\t\t\t*********************************";
+                    string one = "Bank Account Management System\n\n\t\t\t     View Client Information:\n\t\t\t*********************************";
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(one);
                     commandInterface.ViewClientInformation();
@@ -91,7 +87,7 @@ namespace Week8ProjectDay
                 }
                 else
                 {
-                    Console.WriteLine("Oops! You need to enter a vaild menu number!");
+                    Console.WriteLine("Oops! Choose a valid menu number to continue!");
                     input = Console.ReadLine();
                 }
             }
