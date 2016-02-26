@@ -33,7 +33,7 @@ namespace Week8ProjectDay
             writer.WriteLine();
             writer.WriteLine("Transaction Details:");
             writer.WriteLine();
-            writer.WriteLine(String.Format("{0,20}{1,15}{2,15}", "|Time Transaction Took Place|", "|Transaction Amount|", "|Balance|"));
+            writer.WriteLine(String.Format("{0,15}{1,20}{2,30}", "|Time Transaction Took Place|", "|Transaction Amount|", "|Balance|"));
             writer.WriteLine(DateTime.Now);
             writer.WriteLine();
             writer.WriteLine("");
