@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Week8ProjectDay
 {
@@ -51,14 +52,29 @@ namespace Week8ProjectDay
 
         public void DepositFunds()
         {
-            Console.WriteLine("Please enter a deposit amount: ");
+            Console.Write("\tPlease enter a deposit amount: $");
             string deposit = Console.ReadLine();
+            while (true)
+            {
+                if (Regex.IsMatch(deposit, @"^\d+.?\d+$"))
+                {
+                    Console.WriteLine("\n\tThank you for your deposit of $" + deposit + "!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\tOops! Please enter a valid integer only (can include a \".\" for cents).");
+                    deposit = Console.ReadLine();
+                }
+            }
 
         }
 
         public void WithdrawFunds()
         {
-
+            Console.Write("Please enter the amount you wish to withdraw: ");
+            int withdrawal = int.Parse(Console.ReadLine());
+            Console.WriteLine("Your withdrawal of " + withdrawal + "!");
         }
 
         public static void Exit()

@@ -9,12 +9,12 @@ namespace Week8ProjectDay
     class Accounts
     {
         //public string sdflkjsd = "";
-        public int account = 5;
-        public static Random randNum = new Random();
+        public int account;
+        //public static Random randNum = new Random();
 
         public int NewAcct()
         {
-            //Random randNum = new Random();
+            Random randNum = new Random();
             account = randNum.Next(10000000, 100000000);
             return account;
            
@@ -23,7 +23,7 @@ namespace Week8ProjectDay
         public int Account
         {
             get { return this.account; }
-            set { this.account = 5; }//NewAcct(); }
+            set { this.account = NewAcct(); }
         }
         
     }
