@@ -1,0 +1,7 @@
+		~~~~~~~~Account Summary~~~~~~~~
+Account Holder: Margaret Landefeld
+Account Number: 5
+
+Transactions:
+2/25/2016 8:14:58 PM
+
