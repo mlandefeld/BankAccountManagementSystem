@@ -1,10 +1,7 @@
-		~~~~~~~~Account Summary~~~~~~~~
+	~~~~~~~~Account Summary~~~~~~~~
 Account Holder: Margaret Landefeld
-Account Number: 26085802
+Account Number: 32878053
 
 Transaction Details:
 
-|Time Transaction Took Place||Transaction Amount|      |Balance|
-2/26/2016 5:33:00 PM
-
-
+|Time Transaction Took Place|  Transaction Amount|   Balance|

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Week8ProjectDay
 {
-    class Accounts
+    class Account
     {
-        //public string sdflkjsd = "";
         public int id;
-        public float total;
+        public double total;
 
-        public Accounts()
+        public Account()
         {
             this.id = MakeNewAccountNumber();
             this.total = 0;
@@ -23,18 +22,18 @@ namespace Week8ProjectDay
             get { return this.id; }
         }
 
-        public float Total
+        public double Total
         {
-            get { return this.total; }
+            get { return Math.Round(this.total); }
             set { this.total = value; }
         }
-        public float Deposit(float deposit)
+        public double Deposit(double deposit)
         {
             this.total = this.total + deposit;
             return this.total;
         }
 
-        public float Withdraw(float withdraw)
+        public double Withdraw(double withdraw)
         {
             this.total = this.total - withdraw;
             return this.total;
