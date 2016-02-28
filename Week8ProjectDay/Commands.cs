@@ -17,9 +17,8 @@ namespace Week8ProjectDay
 
         public Commands()
         {
-            client = new Client();
-            account = new Account();
-
+            this.client = new Client();
+            this.account = new Account();
             this.WriteStream();
         }
 
@@ -28,8 +27,8 @@ namespace Week8ProjectDay
             StreamWriter writer = new StreamWriter(this.accountFile, false);
 
             writer.WriteLine("\t~~~~~~~~Account Summary~~~~~~~~");
-            writer.WriteLine("Account Holder: " + client.Name());
-            writer.WriteLine("Account Number: " + account.Id);
+            writer.WriteLine("Account Holder: " + this.client.Name());
+            writer.WriteLine("Account Number: " + this.account.Id);
             writer.WriteLine();
             writer.WriteLine("Transaction Details:");
             writer.WriteLine();
@@ -39,9 +38,9 @@ namespace Week8ProjectDay
 
         public void ViewClientInformation()
         {
-            Console.WriteLine("\t\tAccount Holder: " + client.Name());
-            Console.WriteLine("\t\tAccount Number: " + account.Id);
-            Console.WriteLine("\t\tAccount Created On: " + client.CreatedAt);
+            Console.WriteLine("\t\tAccount Holder: " + this.client.Name());
+            Console.WriteLine("\t\tAccount Number: " + this.account.Id);
+            Console.WriteLine("\t\tAccount Created On: " + this.client.CreatedAt);
         }
 
         public void ViewAccountBalance()
@@ -104,7 +103,7 @@ namespace Week8ProjectDay
         public static void Exit()
         {
             Console.Clear();
-            Console.WriteLine("\n\tGoodbye! I hope you found your account summary helpful!\n");
+            Console.WriteLine("\n\tGoodbye! I hope you found this bank account management system helpful!\n");
             Environment.Exit(0);
         }
 
