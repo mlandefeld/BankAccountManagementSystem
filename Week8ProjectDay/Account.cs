@@ -8,6 +8,7 @@ namespace Week8ProjectDay
 {
     class Account
     {
+        //TODO: math.round(val,2) - rounds to two decimal places
         public int id;
         public double total;
 
@@ -22,18 +23,18 @@ namespace Week8ProjectDay
             get { return this.id; }
         }
 
-        public double Total
+        public virtual double Total
         {
-            get { return Math.Round(this.total); }
+            get { return Math.Round(this.total, 2); }
             set { this.total = value; }
         }
-        public double Deposit(double deposit)
+        public virtual double Deposit(double deposit)
         {
             this.total = this.total + deposit;
             return this.total;
         }
 
-        public double Withdraw(double withdraw)
+        public virtual double Withdraw(double withdraw)
         {
             this.total = this.total - withdraw;
             return this.total;

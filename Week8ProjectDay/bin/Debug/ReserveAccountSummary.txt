@@ -1,0 +1,8 @@
+	~~~~~~~~Account Summary~~~~~~~~
+Account Holder: Margaret Landefeld
+Account Number: 85349768
+Account Type: Reserve
+
+Transaction Details:
+
+|Time Transaction Took Place|  Transaction Amount|   Balance|

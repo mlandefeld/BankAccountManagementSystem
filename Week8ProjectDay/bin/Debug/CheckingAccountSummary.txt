@@ -1,0 +1,9 @@
+	~~~~~~~~Account Summary~~~~~~~~
+Account Holder: Margaret Landefeld
+Account Number: 85349768
+Account Type: Checking
+
+Transaction Details:
+
+|Time Transaction Took Place|  Transaction Amount|   Balance|
+|        3/1/2016 8:31:21 PM|                +222|     $0.00|
