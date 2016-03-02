@@ -23,18 +23,18 @@ namespace Week8ProjectDay
             get { return this.id; }
         }
 
-        public virtual double Total
+        public double Total
         {
             get { return Math.Round(this.total, 2); }
             set { this.total = value; }
         }
-        public virtual double Deposit(double deposit)
+        public double Deposit(double deposit)
         {
             this.total = this.total + deposit;
             return this.total;
         }
 
-        public virtual double Withdraw(double withdraw)
+        public double Withdraw(double withdraw)
         {
             this.total = this.total - withdraw;
             return this.total;

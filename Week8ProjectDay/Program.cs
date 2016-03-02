@@ -51,7 +51,7 @@ namespace Week8ProjectDay
                     continue;
 
                 }
-                else if (input == "2")
+                else if (input == "2") 
                 {
                     Console.Clear();
                     string two = "Bank Account Management System \n\n\t\t\t     View Checking Account Balance:\n\t\t\t*********************************";
@@ -84,7 +84,7 @@ namespace Week8ProjectDay
                     input = Console.ReadLine();
                     continue;
                 }
-                else if (input == "5")
+                else if (input == "5") //sub menu here
                 {
                     Console.Clear();
                     string three = "Bank Account Management System \n\n\t\t\t     Deposit Funds:\n\t\t\t***********************";
@@ -95,7 +95,7 @@ namespace Week8ProjectDay
                     input = Console.ReadLine();
                     continue;
                 }
-                else if (input == "6")
+                else if (input == "6") //sub menu here
                 {
                     Console.Clear();
                     string four = "Bank Account Management System \n\n\t\t\t     Withdraw Funds:\n\t\t\t************************";
