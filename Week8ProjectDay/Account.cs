@@ -10,11 +10,23 @@ namespace Week8ProjectDay
     {
         public int id;
         public double total;
+        public string fileName;
+        public string type;
 
         public Account()
         {
             this.id = MakeNewAccountNumber();
             this.total = 0;
+        }
+
+        public string Type
+        {
+            get { return this.type; }
+        }
+
+        public string FileName
+        {
+            get { return this.fileName; }
         }
 
         public int Id
@@ -24,7 +36,7 @@ namespace Week8ProjectDay
 
         public double Total
         {
-            get { return Math.Round(this.total); }
+            get { return Math.Round(this.total, 2); }
             set { this.total = value; }
         }
         public double Deposit(double deposit)

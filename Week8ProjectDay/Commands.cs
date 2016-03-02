@@ -11,52 +11,59 @@ namespace Week8ProjectDay
     class Commands
     {
         public Client client;
-        public Account account;
-        public string accountFile = "AccountSummary.txt";
-
+        public Accounts.Checking checking;
+        public Accounts.Reserve reserve;
+        public Accounts.Savings savings;
 
         public Commands()
         {
             this.client = new Client();
-            this.account = new Account();
-            this.WriteStream();
+
+            this.checking = new Accounts.Checking();
+            this.reserve = new Accounts.Reserve();
+            this.savings = new Accounts.Savings();
+
+            this.WriteStream(this.checking);
+            this.WriteStream(this.reserve);
+            this.WriteStream(this.savings);
         }
 
-        public void WriteStream()
+        public void WriteStream(Account account)
         {
-            StreamWriter writer = new StreamWriter(this.accountFile, false);
+            StreamWriter writer = new StreamWriter(account.FileName, false);
 
             writer.WriteLine("\t~~~~~~~~Account Summary~~~~~~~~");
             writer.WriteLine("Account Holder: " + this.client.Name());
-            writer.WriteLine("Account Number: " + this.account.Id);
+            writer.WriteLine("Account Number: " + account.Id);
+            writer.WriteLine("Account Type: " + account.Type);
             writer.WriteLine();
             writer.WriteLine("Transaction Details:");
             writer.WriteLine();
             writer.Close();
-            this.StreamFormat("Time Transaction Took Place", "Transaction Amount", "Balance");
+            this.StreamFormat("Time Transaction Took Place", "Transaction Amount", "Balance", account);
         }
 
-        public void ViewClientInformation()
+        public void ViewClientInformation(Account account)
         {
             Console.WriteLine("\t\tAccount Holder: " + this.client.Name());
-            Console.WriteLine("\t\tAccount Number: " + this.account.Id);
+            Console.WriteLine("\t\tAccount Number: " + account.Id);
             Console.WriteLine("\t\tAccount Created On: " + this.client.CreatedAt);
         }
 
-        public void ViewAccountBalance()
+        public void ViewAccountBalance(Account account)
         {
-            Console.WriteLine("\tYour account balance is : " + this.account.Total.ToString("C2"));
+            Console.WriteLine("\tYour account balance is : " + account.Total.ToString("C2"));
             
         }
 
-        public void StreamFormat(string time, string amount, string balance)
+        public void StreamFormat(string time, string amount, string balance, Account account)
         {
-            StreamWriter writer = new StreamWriter(this.accountFile, true);
+            StreamWriter writer = new StreamWriter(account.FileName, true);
             writer.WriteLine(String.Format("|{0,27}|{1,20}|{2,10}|", time, amount, balance));
             writer.Close();
         }
 
-        public void DepositFunds()
+        public void DepositFunds(Account account)
         {
             Console.Write("\tPlease enter a deposit amount: $");
             string deposit = Console.ReadLine();
@@ -65,8 +72,8 @@ namespace Week8ProjectDay
                 if (Regex.IsMatch(deposit, @"^\d+.?\d{0,4}$"))
                 {
                     double depositAmount = double.Parse(deposit);
-                    this.account.Deposit(depositAmount);
-                    this.StreamFormat(DateTime.Now.ToString(), "+" + deposit, this.account.Total.ToString("C2"));
+                    account.Deposit(depositAmount);
+                    this.StreamFormat(DateTime.Now.ToString(), "+" + deposit, account.Total.ToString("C2"), account);
                     Console.WriteLine("\n\tThank you for your deposit of $" + deposit + "!");
                     break;
                 }
@@ -78,7 +85,7 @@ namespace Week8ProjectDay
             } 
         }
 
-        public void WithdrawFunds()
+        public void WithdrawFunds(Account account)
         {
             Console.Write("\tPlease enter the amount you wish to withdraw: $");
             string withdrawal = Console.ReadLine();
@@ -87,8 +94,8 @@ namespace Week8ProjectDay
                 if (Regex.IsMatch(withdrawal, @"^\d+.?\d{0,4}$"))
                 {
                     double withdrawalAmount = double.Parse(withdrawal);
-                    this.account.Withdraw(withdrawalAmount);
-                    this.StreamFormat(DateTime.Now.ToString(), "-" + withdrawal, this.account.Total.ToString("C2"));
+                    account.Withdraw(withdrawalAmount);
+                    this.StreamFormat(DateTime.Now.ToString(), "-" + withdrawal, account.Total.ToString("C2"), account);
                     Console.WriteLine("\n\tYour withdrawal of $" + withdrawal + " is complete!");
                     break;
                 }
