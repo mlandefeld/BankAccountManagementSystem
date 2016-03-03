@@ -10,6 +10,7 @@ namespace Week8ProjectDay
 {
     class Commands
     {
+        
         public Client client;
         public Accounts.Checking checking;
         public Accounts.Reserve reserve;
@@ -27,7 +28,7 @@ namespace Week8ProjectDay
             this.WriteStream(this.reserve);
             this.WriteStream(this.savings);
         }
-
+        
         public void WriteStream(Account account)
         {
             StreamWriter writer = new StreamWriter(account.FileName, false);
@@ -46,7 +47,7 @@ namespace Week8ProjectDay
         public void ViewClientInformation(Account account)
         {
             Console.WriteLine("\t\tAccount Holder: " + this.client.Name());
-            Console.WriteLine("\t\tAccount Number: " + account.Id);
+            Console.WriteLine("\t\tAccount Number: " + account.Id);//what does account refer to?
             Console.WriteLine("\t\tAccount Created On: " + this.client.CreatedAt);
         }
 
@@ -80,6 +81,7 @@ namespace Week8ProjectDay
                 else
                 {
                     Console.WriteLine("\tOops! Please enter a valid integer only (can include a \".\" for cents).");
+                    Console.Write("\t");
                     deposit = Console.ReadLine();
                 }
             } 
@@ -102,6 +104,7 @@ namespace Week8ProjectDay
                 else
                 {
                     Console.WriteLine("\tOops! Please enter a valid integer only (can include a \".\" for cents).");
+                    Console.Write("\t");
                     withdrawal = Console.ReadLine();
                 }
             }    
