@@ -10,23 +10,16 @@ namespace Week8ProjectDay
 {
     class Commands
     {
-        
         public Client client;
-        public Accounts.Checking checking;
-        public Accounts.Reserve reserve;
-        public Accounts.Savings savings;
 
         public Commands()
         {
             this.client = new Client();
 
-            this.checking = new Accounts.Checking();
-            this.reserve = new Accounts.Reserve();
-            this.savings = new Accounts.Savings();
-
-            this.WriteStream(this.checking);
-            this.WriteStream(this.reserve);
-            this.WriteStream(this.savings);
+            foreach (Account account in this.client.accounts)
+            {
+                this.WriteStream(account);
+            }
         }
         
         public void WriteStream(Account account)
@@ -41,31 +34,37 @@ namespace Week8ProjectDay
             writer.WriteLine("Transaction Details:");
             writer.WriteLine();
             writer.Close();
-            this.StreamFormat("Time Transaction Took Place", "Transaction Amount", "Balance", account);
+            this.StreamFormat("Time Transaction Took Place", "Transaction Amount", "Balance", account.FileName);
         }
 
-        public void ViewClientInformation(Account account)
+        public void ViewClientInformation(string type)
         {
+            Account account = this.client.Accounts.Find(x => x.Type == type);
+
             Console.WriteLine("\t\tAccount Holder: " + this.client.Name());
-            Console.WriteLine("\t\tAccount Number: " + account.Id);//what does account refer to?
+            Console.WriteLine("\t\tAccount Number: " + account.Id);
+            Console.WriteLine("\t\tAccount Type: " + account.Type);
             Console.WriteLine("\t\tAccount Created On: " + this.client.CreatedAt);
+
         }
 
-        public void ViewAccountBalance(Account account)
+        public void ViewAccountBalance(string type)
         {
+            Account account = this.client.Accounts.Find(x => x.Type == type);
             Console.WriteLine("\tYour account balance is : " + account.Total.ToString("C2"));
-            
         }
 
-        public void StreamFormat(string time, string amount, string balance, Account account)
+        public void StreamFormat(string time, string amount, string balance, string fileName)
         {
-            StreamWriter writer = new StreamWriter(account.FileName, true);
+            StreamWriter writer = new StreamWriter(fileName, true);
             writer.WriteLine(String.Format("|{0,27}|{1,20}|{2,10}|", time, amount, balance));
             writer.Close();
         }
 
-        public void DepositFunds(Account account)
+        public void DepositFunds(string type)
         {
+            Account account = this.client.Accounts.Find(x => x.Type == type);
+            
             Console.Write("\tPlease enter a deposit amount: $");
             string deposit = Console.ReadLine();
             while (true)
@@ -74,7 +73,7 @@ namespace Week8ProjectDay
                 {
                     double depositAmount = double.Parse(deposit);
                     account.Deposit(depositAmount);
-                    this.StreamFormat(DateTime.Now.ToString(), "+" + deposit, account.Total.ToString("C2"), account);
+                    this.StreamFormat(DateTime.Now.ToString(), "+" + deposit, account.Total.ToString("C2"), account.FileName);
                     Console.WriteLine("\n\tThank you for your deposit of $" + deposit + "!");
                     break;
                 }
@@ -84,11 +83,13 @@ namespace Week8ProjectDay
                     Console.Write("\t");
                     deposit = Console.ReadLine();
                 }
-            } 
+            }
         }
 
-        public void WithdrawFunds(Account account)
+        public void WithdrawFunds(string type)
         {
+            Account account = this.client.Accounts.Find(x => x.Type == type);
+
             Console.Write("\tPlease enter the amount you wish to withdraw: $");
             string withdrawal = Console.ReadLine();
             while (true)
@@ -97,7 +98,7 @@ namespace Week8ProjectDay
                 {
                     double withdrawalAmount = double.Parse(withdrawal);
                     account.Withdraw(withdrawalAmount);
-                    this.StreamFormat(DateTime.Now.ToString(), "-" + withdrawal, account.Total.ToString("C2"), account);
+                    this.StreamFormat(DateTime.Now.ToString(), "-" + withdrawal, account.Total.ToString("C2"), account.FileName);
                     Console.WriteLine("\n\tYour withdrawal of $" + withdrawal + " is complete!");
                     break;
                 }
@@ -107,7 +108,7 @@ namespace Week8ProjectDay
                     Console.Write("\t");
                     withdrawal = Console.ReadLine();
                 }
-            }    
+            }
         }
 
         public static void Exit()

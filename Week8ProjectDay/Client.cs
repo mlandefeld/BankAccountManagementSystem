@@ -11,12 +11,20 @@ namespace Week8ProjectDay
         public string firstName;
         public DateTime createdAt;
         public string lastName;
+        public List<Account> accounts;
 
         public Client()
         {
             this.firstName = "Margaret";
             this.lastName = "Landefeld";
             this.createdAt = DateTime.Now;
+
+            List<Account> accounts = new List<Account>();
+            accounts.Add(new Accounts.Checking());
+            accounts.Add(new Accounts.Reserve());
+            accounts.Add(new Accounts.Savings());
+
+            this.accounts = accounts;
         }
 
         public string FirstName
@@ -37,6 +45,11 @@ namespace Week8ProjectDay
         public DateTime CreatedAt
         {
             get { return this.createdAt; }
+        }
+
+        public List<Account> Accounts
+        {
+            get { return this.accounts; }
         }
         
     }
