@@ -42,7 +42,7 @@ namespace Week8ProjectDay
                     string one = "Bank Account Management System\n\n\t\t\t     View Client Information:\n\t\t\t*********************************";
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(one);
-
+         
                     Console.WriteLine("\tWhich account would you like to view?");
                     Console.Write("\t1.Checking Account\n\t2.Reserve Account\n\t3.Savings Account\n\t");
                     string newInput = Console.ReadLine();
@@ -70,20 +70,45 @@ namespace Week8ProjectDay
                             newInput = Console.ReadLine();
                         }
                     }
-
                     Console.WriteLine(menu);
                     input = Console.ReadLine();
                     continue;
 
                 }
-                /*
                 else if (input == "2")
                 {
                     Console.Clear();
                     string two = "Bank Account Management System \n\n\t\t\t     View Account Balance:\n\t\t\t******************************";
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(two);
-                    commandInterface.ViewAccountBalance();
+
+                    Console.WriteLine("\tWhich account would you like to view?");
+                    Console.Write("\t1.Checking Account\n\t2.Reserve Account\n\t3.Savings Account\n\t");
+                    string newInput = Console.ReadLine();
+                    while (true)
+                    {
+                        if (newInput == "1")
+                        {
+                            commandInterface.ViewAccountBalance("Checking");
+                            break;
+                        }
+                        else if (newInput == "2")
+                        {
+                            commandInterface.ViewAccountBalance("Reserve");
+                            break;
+                        }
+                        else if (newInput == "3")
+                        {
+                            commandInterface.ViewAccountBalance("Savings");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\tOops! Choose an account you would like to deposit funds into!");
+                            Console.Write("\t");
+                            newInput = Console.ReadLine();
+                        }
+                    }
                     Console.WriteLine(menu);
                     input = Console.ReadLine();
                     continue;
@@ -94,7 +119,34 @@ namespace Week8ProjectDay
                     string three = "Bank Account Management System \n\n\t\t\t     Deposit Funds:\n\t\t\t************************";
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(three);
-                    commandInterface.DepositFunds();
+
+                    Console.WriteLine("\tWhich account would you like to view?");
+                    Console.Write("\t1.Checking Account\n\t2.Reserve Account\n\t3.Savings Account\n\t");
+                    string newInput = Console.ReadLine();
+                    while (true)
+                    {
+                        if (newInput == "1")
+                        {
+                            commandInterface.DepositFunds("Checking");
+                            break;
+                        }
+                        else if (newInput == "2")
+                        {
+                            commandInterface.DepositFunds("Reserve");
+                            break;
+                        }
+                        else if (newInput == "3")
+                        {
+                            commandInterface.DepositFunds("Savings");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\tOops! Choose an account you would like to deposit funds into!");
+                            Console.Write("\t");
+                            newInput = Console.ReadLine();
+                        }
+                    }
                     Console.WriteLine(menu);
                     input = Console.ReadLine();
                     continue;
@@ -105,7 +157,34 @@ namespace Week8ProjectDay
                     string four = "Bank Account Management System \n\n\t\t\t     Withdraw Funds:\n\t\t\t************************";
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(four);
-                    commandInterface.WithdrawFunds();
+
+                    Console.WriteLine("\tWhich account would you like to view?");
+                    Console.Write("\t1.Checking Account\n\t2.Reserve Account\n\t3.Savings Account\n\t");
+                    string newInput = Console.ReadLine();
+                    while (true)
+                    {
+                        if (newInput == "1")
+                        {
+                            commandInterface.WithdrawFunds("Checking");
+                            break;
+                        }
+                        else if (newInput == "2")
+                        {
+                            commandInterface.WithdrawFunds("Reserve");
+                            break;
+                        }
+                        else if (newInput == "3")
+                        {
+                            commandInterface.WithdrawFunds("Savings");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\tOops! Choose an account you would like to deposit funds into!");
+                            Console.Write("\t");
+                            newInput = Console.ReadLine();
+                        }
+                    }
                     Console.WriteLine(menu);
                     input = Console.ReadLine();
                     continue;
@@ -113,7 +192,7 @@ namespace Week8ProjectDay
                 else if (input == "5")
                 {
                     Commands.Exit();
-                }*/
+                }
                 else
                 {
                     Console.WriteLine("Oops! Choose a valid menu number to continue!");

@@ -1,8 +1,10 @@
 	~~~~~~~~Account Summary~~~~~~~~
 Account Holder: Margaret Landefeld
-Account Number: 53594816
+Account Number: 47195781
 Account Type: Checking
 
 Transaction Details:
 
 |Time Transaction Took Place|  Transaction Amount|   Balance|
+|        3/3/2016 8:03:58 PM|                  -1|   ($1.00)|
+|        3/3/2016 8:04:20 PM|                  +2|     $1.00|

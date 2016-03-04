@@ -11,10 +11,17 @@ namespace Week8ProjectDay
     class Commands
     {
         public Client client;
+        public Accounts.Checking checking;
+        public Accounts.Reserve reserve;
+        public Accounts.Savings savings;
+        
 
         public Commands()
         {
             this.client = new Client();
+            this.checking = new Accounts.Checking();
+            this.reserve = new Accounts.Reserve();
+            this.savings = new Accounts.Savings();
 
             foreach (Account account in this.client.accounts)
             {
@@ -45,13 +52,32 @@ namespace Week8ProjectDay
             Console.WriteLine("\t\tAccount Number: " + account.Id);
             Console.WriteLine("\t\tAccount Type: " + account.Type);
             Console.WriteLine("\t\tAccount Created On: " + this.client.CreatedAt);
-
         }
 
         public void ViewAccountBalance(string type)
         {
             Account account = this.client.Accounts.Find(x => x.Type == type);
             Console.WriteLine("\tYour account balance is : " + account.Total.ToString("C2"));
+            if (account.Total < 0)
+            {
+                checking.AcctOverdraft();
+            }
+            else if (account.Total > 1000000)
+            {
+                checking.AcctMillionaire();
+            }
+            else if (account.Total > 0 && account.Total <= 200)
+            {
+                savings.AcctBadSaver();
+            }
+            else if (account.Total > 5000000)
+            {
+                savings.AcctSuperSaver();
+            }
+            else
+            {
+                
+            }
         }
 
         public void StreamFormat(string time, string amount, string balance, string fileName)

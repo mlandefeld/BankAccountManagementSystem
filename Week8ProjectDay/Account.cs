@@ -28,12 +28,12 @@ namespace Week8ProjectDay
         {
             get { return this.fileName; }
         }
-
+        
         public int Id
         {
             get { return this.id; }
         }
-
+        
         public double Total
         {
             get { return Math.Round(this.total, 2); }
@@ -56,6 +56,5 @@ namespace Week8ProjectDay
             Random randNum = new Random();
             return randNum.Next(10000000, 100000000);
         }
-        
     }
 }
