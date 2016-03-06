@@ -8,14 +8,14 @@ namespace Week8ProjectDay
 {
     class Account
     {
-        public int id;
-        public double total;
-        public string fileName;
-        public string type;
+        protected int id;
+        protected double total;
+        protected string fileName;
+        protected string type;
 
-        public Account()
+        public Account(Random rand)
         {
-            this.id = MakeNewAccountNumber();
+            this.id = rand.Next(10000000, 100000000);
             this.total = 0;
         }
 
@@ -49,12 +49,6 @@ namespace Week8ProjectDay
         {
             this.total = this.total - withdraw;
             return this.total;
-        }
-
-        public static int MakeNewAccountNumber()
-        {
-            Random randNum = new Random();
-            return randNum.Next(10000000, 100000000);
         }
     }
 }

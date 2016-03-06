@@ -11,17 +11,11 @@ namespace Week8ProjectDay
     class Commands
     {
         public Client client;
-        public Accounts.Checking checking;
-        public Accounts.Reserve reserve;
-        public Accounts.Savings savings;
-        
+
 
         public Commands()
         {
             this.client = new Client();
-            this.checking = new Accounts.Checking();
-            this.reserve = new Accounts.Reserve();
-            this.savings = new Accounts.Savings();
 
             foreach (Account account in this.client.accounts)
             {
@@ -60,19 +54,19 @@ namespace Week8ProjectDay
             Console.WriteLine("\tYour account balance is : " + account.Total.ToString("C2"));
             if (account.Total < 0)
             {
-                checking.AcctOverdraft();
+                Accounts.Checking.AcctOverdraft();
             }
             else if (account.Total > 1000000)
             {
-                checking.AcctMillionaire();
+                Accounts.Checking.AcctMillionaire();
             }
             else if (account.Total > 0 && account.Total <= 200)
             {
-                savings.AcctBadSaver();
+                Accounts.Savings.AcctBadSaver();
             }
             else if (account.Total > 5000000)
             {
-                savings.AcctSuperSaver();
+                Accounts.Savings.AcctSuperSaver();
             }
             else
             {

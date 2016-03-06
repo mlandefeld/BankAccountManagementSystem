@@ -8,17 +8,13 @@ namespace Week8ProjectDay.Accounts
 {
     class Reserve : Account
     {
-        public string whatReserve;
-        public string reserveAcct;
+        private string whatReserve;
+        private string reserveAcct;
 
-        public Reserve() : base()
+        public Reserve(Random rand) : base(rand)
         {
             this.fileName = "ReserveAccountSummary.txt";
             this.type = "Reserve";
-        }
-
-        public Reserve(string whatReserve, string reserveAcct)
-        {
             this.whatReserve = "This is a Reserve Account";
             this.reserveAcct = "A really cool Reserve Account";
         }

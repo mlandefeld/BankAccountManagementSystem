@@ -18,11 +18,12 @@ namespace Week8ProjectDay
             this.firstName = "Margaret";
             this.lastName = "Landefeld";
             this.createdAt = DateTime.Now;
+            Random rand = new Random();
 
             List<Account> accounts = new List<Account>();
-            accounts.Add(new Accounts.Checking());
-            accounts.Add(new Accounts.Reserve());
-            accounts.Add(new Accounts.Savings());
+            accounts.Add(new Accounts.Checking(rand));
+            accounts.Add(new Accounts.Reserve(rand));
+            accounts.Add(new Accounts.Savings(rand));
 
             this.accounts = accounts;
         }
