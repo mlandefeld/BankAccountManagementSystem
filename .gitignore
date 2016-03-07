@@ -1,5 +1,7 @@
+#Dont ignore the bin debug folder
 bin/
-!bin/Debug
+
+#Ignore the rest
 obj/
 .user/
 .vs/
