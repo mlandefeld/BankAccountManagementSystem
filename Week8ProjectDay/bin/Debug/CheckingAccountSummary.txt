@@ -1,8 +1,0 @@
-	~~~~~~~~Account Summary~~~~~~~~
-Account Holder: Margaret Landefeld
-Account Number: 69671638
-Account Type: Checking
-
-Transaction Details:
-
-|Time Transaction Took Place|  Transaction Amount|   Balance|

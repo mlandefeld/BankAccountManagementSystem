@@ -1,8 +1,0 @@
-	~~~~~~~~Account Summary~~~~~~~~
-Account Holder: Margaret Landefeld
-Account Number: 31887458
-Account Type: Savings
-
-Transaction Details:
-
-|Time Transaction Took Place|  Transaction Amount|   Balance|

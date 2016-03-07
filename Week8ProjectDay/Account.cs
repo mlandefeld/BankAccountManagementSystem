@@ -8,10 +8,16 @@ namespace Week8ProjectDay
 {
     class Account
     {
+<<<<<<< HEAD
         protected int id;
         protected double total;
         protected string fileName;
         protected string type;
+=======
+        //TODO: math.round(val,2) - rounds to two decimal places
+        public int id;
+        public double total;
+>>>>>>> master
 
         public Account(Random rand)
         {
