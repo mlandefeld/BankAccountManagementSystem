@@ -8,16 +8,10 @@ namespace Week8ProjectDay
 {
     class Account
     {
-<<<<<<< HEAD
         protected int id;
         protected double total;
         protected string fileName;
         protected string type;
-=======
-        //TODO: math.round(val,2) - rounds to two decimal places
-        public int id;
-        public double total;
->>>>>>> master
 
         public Account(Random rand)
         {
@@ -34,12 +28,12 @@ namespace Week8ProjectDay
         {
             get { return this.fileName; }
         }
-        
+
         public int Id
         {
             get { return this.id; }
         }
-        
+
         public double Total
         {
             get { return Math.Round(this.total, 2); }
